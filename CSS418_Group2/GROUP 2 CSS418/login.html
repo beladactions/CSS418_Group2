@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <h2><marquee>Welcome to <strong>GROUP 2</strong> Tech Academy</marquee></h2>
+  <h1>LOGIN</h1>
+    
+  <form id="loginForm" onsubmit="return login()">
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="email" required autocomplete="email" placeholder="Enter Required Email Address here...">
+      
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required minlength="6" autocomplete="current-password" placeholder="Enter Password here...">
+        
+    <label for="student_id">Student ID:</label>
+    <input type="text" id="student_id" name="student_id" required autocomplete="off" placeholder="Enter Your Student ID Here...">
+        
+    <label for="questions">Security Questions:</label>
+    <select name="questions" id="questions" required autocomplete="off">
+      <option value="">Choose a security question...</option>
+      <option value="q1">What is your Favorite food?</option>
+      <option value="q2">What is your Favorite color?</option>
+      <option value="q3">What's your Status? Married or Single?</option>
+    </select>
+      
+    <label for="answer">Security Answer:</label>
+    <input type="password" id="answer" required autocomplete="off" placeholder="Enter Answer to Security Question Here...">
+        
+    <input type="submit" value="Login"> 
+  </form>
+  <p id="empty"></p>
+
+  <script src="main.js"></script>
+</body>
+</html>

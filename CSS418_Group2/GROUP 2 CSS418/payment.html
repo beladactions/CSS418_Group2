@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment</title>
+  <link rel="stylesheet" href="payment.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome icons -->
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>Welcome to GROUP 2 Tech Academy Dashboard</h1>
+      <a href="login.html" class="logout-btn"><i class="fas fa-logout"></i> Logout</a>
+    </div>
+  </header>
+  <div class="dashboard">
+    <div class="sidebar">
+      <h2>Dashboard Menu</h2>
+      <ul>
+        <li><a href="payment.html"><i class="fas fa-credit-card"></i> Payment</a></li>
+        <li><button id="course"><i class="fas fa-graduation-cap"></i> Course Reg</button></li>
+      </ul>
+    </div>
+    <div class="main">
+      <div class="payment-box">
+        <h2>Make a Payment</h2>
+
+        <form id="paymentForm">
+          <div class="form-group">
+           
+            <label for="level">Select Level:</label>
+            
+            <select name="level" id="level" required>
+              <option value="">Select Level</option>
+              <option value="100" disabled="">100 Level</option>
+              <option value="200" disabled="">200 Level</option>
+              <option value="300" disabled="">300 Level</option>
+              <option value="400">400 Level</option>
+              <option value="500" disabled>500 Level</option>
+            </select>
+          </div>
+          <div class="form-group" id="amountGroup" style="display: none;">
+            <label for="amount">Amount to Pay:</label>
+            <input type="text" id="amount" name="amount" readonly>
+          </div>
+
+          <button type="button" id="payNowBtn" disabled>Pay Now</button>
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+      var paymentStatus = 'false'
+
+    // Function to handle payment processing
+    function processPayment() {
+      // Retrieve selected level and amount
+      paymentStatus = 'true'
+      var level = document.getElementById('level').value;
+      var amount;
+
+      // Calculate amount based on the selected level
+      switch (level) {
+        case '100':
+          amount = 50000;
+          break;
+        case '200':
+          amount = 100000;
+          break;
+        case '300':
+          amount = 150000;
+          break;
+        case '400':
+          amount = 200000;
+          break;
+        case '500':
+          amount = 250000;
+          break;
+        default:
+          amount = 0;
+      }
+
+      // You can perform additional processing here (e.g., sending payment details to a server)
+      
+      // Redirect to the payment confirmation page
+      if(paymentStatus === 'false'){
+        alert('Please make payment first')
+      }else {
+          window.location.href = 'paynow.html';
+      }
+    }
+
+    // Event listener for the Pay Now button
+    document.getElementById('payNowBtn').addEventListener('click', processPayment);
+
+    // Function to calculate and display the amount based on the selected level
+    function calculateAmount() {
+      var level = document.getElementById('level').value;
+      var amountInput = document.getElementById('amount');
+      var amount;
+
+      // Calculate amount based on the selected level
+      switch (level) {
+        case '100':
+          amount = 50000;
+          break;
+        case '200':
+          amount = 100000;
+          break;
+        case '300':
+          amount = 150000;
+          break;
+        case '400':
+          amount = 200000;
+          break;
+        case '500':
+          amount = 250000;
+          break;
+        default:
+          amount = 0;
+      }
+
+      // Display the calculated amount in the input field
+      amountInput.value = '₦' + amount.toFixed(2);
+    }
+
+    // Event listener for the level select input
+    // document.getElementById('level').addEventListener('change', function() {
+    //   // Show the amount input field when a level is selected
+    //   document.getElementById('amountGroup').style.display = 'block';
+    //   // Calculate and display the amount
+    //   calculateAmount();
+    // });
+
+    // Event listener for the level select input
+document.getElementById('level').addEventListener('change', function() {
+  // Show the amount input field when a level is selected
+  document.getElementById('amountGroup').style.display = 'block';
+  // Calculate and display the amount
+  calculateAmount();
+  // Enable the "Pay Now" button when a level is selected
+  document.getElementById('payNowBtn').removeAttribute('disabled');
+});
+
+
+    // Initialize amount calculation on page load
+    calculateAmount();
+
+
+
+    var course = document.getElementById('course')
+      course.addEventListener('click', function(){
+        if(paymentStatus === 'false'){
+          alert('Please make payment before proceeding....')
+        }
+        else {
+          window.location.href = "registration.html";
+        }
+      })
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Registration</title>
+  <link rel="stylesheet" href="registration.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome icons -->
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>Welcome to GROUP 2 Tech Academy Dashboard</h1>
+      <a href="dashboard.html" class="home-btn"><i class="fas fa-home"></i> Home</a>
+      <a href="login.html" class="logout-btn"><i class="fas fa-logout"></i> Logout</a>
+    </div>
+  </header>
+  <div class="dashboard">
+    <div class="sidebar">
+      <h2>Dashboard Menu</h2>
+      <ul>
+        <li><a href="registration.html"><i class="fas fa-graduation-cap"></i> Course Registrations</a></li>
+      </ul>
+    </div>
+    <div class="main">
+      <div class="course-registration">
+        <h2>Course Registration</h2>
+        <p>Select courses from different levels of cybersecurity:</p>
+        <form action="#" method="POST" id="registrationForm">
+          <div class="form-group">
+            <label for="level">Select Level:</label>
+            <select name="level" id="level" required>
+              <option value="">Select Level</option>
+              <option value="100">100 Level</option>
+              <option value="200">200 Level</option>
+              <option value="300">300 Level</option>
+              <option value="400" selected>400 Level</option>
+              <option value="500">500 Level</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="courses">Select Courses:</label>
+            <select name="courses" id="courses" multiple required>
+              <!-- Populate options dynamically with JavaScript -->
+            </select>
+          </div>
+          <a id="registerCoursesBtn" href="congratulations.html"><button type="button">Register Courses</button></a>
+        </form>
+        <div id="totalUnit"></div> <!-- Display total course units -->
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Course data for each level
+    const coursesByLevel = {
+      "100": ["CSS111", "CPT111", "CSS123", "MAT121"],
+      "200": ["CSS211", "CSS212", "CIT223", "GST221"],
+      "300": ["CSS315", "CSS312", "CSS323", "CPT321"],
+      "400": ["CSS411", "CSS412", "CSS423", "GST425"],
+      "500": ["CSS511", "CSS512", "CSS523", "CIT525"]
+    };
+
+    // Function to populate course options based on the selected level
+    function populateCourses() {
+      var level = document.getElementById('level').value;
+      var coursesSelect = document.getElementById('courses');
+      coursesSelect.innerHTML = ''; // Clear previous options
+
+      // Populate options based on the selected level
+      coursesByLevel[level].forEach(course => {
+        var option = document.createElement('option');
+        option.value = course;
+        option.textContent = course;
+        coursesSelect.appendChild(option);
+      });
+    }
+
+    // Event listener for the level select input
+    document.getElementById('level').addEventListener('change', populateCourses);
+
+    // Function to calculate and display total course units
+    function calculateTotalUnits() {
+      var selectedCourses = document.getElementById('courses').selectedOptions;
+      var totalUnits = 0;
+
+      // Calculate total units based on the selected courses
+      for (var i = 0; i < selectedCourses.length; i++) {
+        var courseCode = selectedCourses[i].value;
+        // Assuming each course has 3 units for demonstration purposes
+        totalUnits += 3;
+      }
+
+      // Display total units
+      document.getElementById('totalUnit').textContent = 'Total Course Units: ' + totalUnits;
+    }
+
+    // Event listener for the course selection
+    document.getElementById('courses').addEventListener('change', calculateTotalUnits);
+
+    // Initialize course options and total units on page load
+    populateCourses();
+    calculateTotalUnits();
+  </script>
+</body>
+</html>

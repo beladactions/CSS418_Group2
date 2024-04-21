@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Confirmation</title>
+  <link rel="stylesheet" href="payment.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome icons -->
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>Welcome to GROUP 2 Tech Academy Dashboard</h1>
+      <a href="dashboard.html" class="home-btn"><i class="fas fa-home"></i> Home</a>
+      <a href="login.html" class="logout-btn"><i class="fas fa-logout"></i> Logout</a>
+    </div>
+  </header>
+  <div class="dashboard">
+    <div class="sidebar">
+      <h2>Dashboard Menu</h2>
+      <ul>
+        <li><a href="registration.html"><i class="fas fa-graduation-cap"></i> Course Registrations</a></li>
+      </ul>
+    </div>
+    <div class="main">
+      <div class="confirmation-box">
+        <h2>Congratulations! Payment Successful</h2>
+        <p>Your payment has been received. Thank you for your payment.</p>
+        <p>Please click the button below to register for courses.</p>
+        <button id="registerCoursesBtn">Register Courses</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Function to handle registering for courses
+    function registerCourses() {
+      // Redirect to the course registration page based on the selected level
+      var level = localStorage.getItem('selectedLevel');
+      if (level) {
+        switch (level) {
+          case '100':
+            window.location.href = 'register_courses_100.html';
+            break;
+          case '200':
+            window.location.href = 'register_courses_200.html';
+            break;
+          case '300':
+            window.location.href = 'register_courses_300.html';
+            break;
+          case '400':
+            window.location.href = 'register_courses_400.html';
+            break;
+          case '500':
+            window.location.href = 'register_courses_500.html';
+            break;
+          default:
+            // Redirect to a default page if level is not found
+            window.location.href = 'registration.html';
+            break;
+        }
+      } else {
+        // Redirect to a default page if level is not found
+        window.location.href = 'registration.html';
+      }
+    }
+
+    // Event listener for the register courses button
+    document.getElementById('registerCoursesBtn').addEventListener('click', registerCourses);
+  </script>
+</body>
+</html>

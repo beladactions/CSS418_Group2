@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome icons -->
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>Welcome to GROUP 2 Tech Academy Dashboard</h1>
+      <a href="login.html" class="logout-btn"><i class="fas fa-logout"></i> Logout</a>
+    </div>
+  </header>
+  <div class="dashboard">
+    <div class="sidebar">
+      <h2>Dashboard Menu</h2>
+      <ul>
+        <li><a href="courses_in_progress.html"><i class="fas fa-graduation-cap"></i> Courses in Progress</a></li>
+        <li><a href="student-profile.html"><i class="fas fa-user"></i> Student Profile</a></li>
+        <li><a href="result-page.html"><i class="fas fa-poll"></i> Result</a></li>
+      </ul>
+    </div>
+    <div class="main">
+      <div class="box payment-status">
+        <h2>Payment Status</h2>
+        <p><i class="fas fa-check-circle"></i>Paid </p>
+      </div>
+      <div class="box course-registrations">
+        <h2>Course Registrations</h2>
+        <p><i class="fas fa-book"></i> Registered Courses: 4</p>
+      </div>
+      <div class="box student-profile">
+        <h2>Student Profile</h2>
+        <p id="name"><i class="fas fa-user"></i> Name: Chinedu Somtochukwu </p>
+        <p><i class="fas fa-id-card"></i> Student ID: M123456</p>
+      </div>
+      <div class="box result">
+        <h2>Result</h2>
+        <p><i class="fas fa-chart-line"></i> GPA: 5.0</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+
+</body>
+</html>

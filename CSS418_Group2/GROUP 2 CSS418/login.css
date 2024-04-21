@@ -1,0 +1,66 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff; /* white background */
+  color: #000000; /* black text */
+  margin: 0;
+  padding: 0;
+  background-image: url('/image/img1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+h2 {
+  text-align: center;
+  color: #eff0f1; /* navy blue color */
+  margin-bottom: 20px;
+  background-color: #a408ec;
+  padding: 20px;
+  margin-top: 0;
+}
+
+h1 {
+  text-align: center;
+  color: #001f3f; /* navy blue color */
+}
+
+form {
+  width: 80%;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f0f0f0; /* light gray background */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #001f3f; /* navy blue background for button */
+  color: #ffffff; /* white text for button */
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #003366; /* darker shade of navy blue on hover */
+
+}
